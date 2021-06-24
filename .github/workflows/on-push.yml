@@ -23,7 +23,7 @@ jobs:
         with:
           context: ./
           build-args: |
-            NGINX_VERSION=1.21.0
+            NGINX_VERSION=${{ env.NGINX_VERSION }}
           push: true
           cache-from: type=registry,ref=${{ github.repository_owner }}/dev-nginx:${{ env.NGINX_VERSION }}
           cache-to: type=inline
