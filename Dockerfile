@@ -4,7 +4,8 @@ FROM nginx:${NGINX_VERSION}-alpine
 
 ENV NGINX_ERROR_LOG=/dev/fd/2 \
     NGINX_ACCESS_LOG=/dev/fd/1 \
-    FILE=/etc/ssl/certs/project.crt
+    FILE=/etc/ssl/certs/project.crt \
+    FPM_ENTRY_POINT=app.php
 
 COPY templates /etc/nginx/templates/
 
