@@ -5,7 +5,7 @@ server {
     server_name ${NGINX_PROJECT}.${NGINX_HOST};
     root /var/www/web;
 
-    location ~ ^/${FPM_ENTRY_POINT}.(/|$) {
+    location ~ ^/${FPM_ENTRY_POINT}(/|$) {
         fastcgi_pass ${PHP_FPM_CONTAINER}:9000;
         fastcgi_split_path_info ^(.+\.php)(/.*)$;
         include fastcgi_params;
