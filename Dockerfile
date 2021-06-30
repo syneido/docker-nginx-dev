@@ -14,6 +14,6 @@ RUN apk add --update --no-cache openssl \
         -keyout /etc/ssl/certs/project.key \
         -out $FILE \
         -subj "/C=FR/L=Lille/O=App Project/OU=Development/CN=*.$NGINX_HOST" \
-    && envsubst \$NGINX_ERROR_LOG,\$NGINX_ACCESS_LOG,\$NGINX_PROJECT,\NGINX_HOST < /etc/nginx/templates/default.conf.template > /etc/nginx/default.conf \
+    && envsubst \$NGINX_ERROR_LOG,\$NGINX_ACCESS_LOG,\$NGINX_PROJECT,\$NGINX_HOST,\$NGINX_ROOT_DIR < /etc/nginx/templates/default.conf.template > /etc/nginx/default.conf \
     && rm /etc/nginx/templates/default.conf.template
 
