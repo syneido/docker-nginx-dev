@@ -3,7 +3,7 @@ server {
     ssl_certificate /etc/ssl/certs/project.crt;
     ssl_certificate_key /etc/ssl/certs/project.key;
     server_name ${NGINX_PROJECT}.${NGINX_HOST};
-    root /var/www/web;
+    root /var/www/${NGINX_ROOT_DIR};
 
     location / {
         try_files $uri /${FPM_ENTRYPOINT}.php$is_args$args;
