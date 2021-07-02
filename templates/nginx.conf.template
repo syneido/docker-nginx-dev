@@ -31,6 +31,16 @@ http {
      return 301 https://$host$request_uri;
   }
 
+  server {
+     listen 443 default_server;
+     ssl_certificate /etc/ssl/certs/project.crt;
+     ssl_certificate_key /etc/ssl/certs/project.key;
+     server_name _;
+     location / {
+        return 404;
+       }
+    }
+
   include /etc/nginx/conf.d/*.conf;
   client_max_body_size 100m;
 
