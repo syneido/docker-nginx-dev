@@ -12,6 +12,8 @@ server {
     location ~ ^/${FPM_ENTRYPOINT}\.php(/|$) {
         fastcgi_pass ${PHP_FPM_CONTAINER}:9000;
         fastcgi_split_path_info ^(.+\.php)(/.*)$;
+        fastcgi_buffers 16 16k;
+        fastcgi_buffer_size 32k;
         include fastcgi_params;
 
         fastcgi_param SCRIPT_FILENAME $realpath_root$fastcgi_script_name;
