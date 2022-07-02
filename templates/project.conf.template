@@ -2,7 +2,7 @@ server {
     listen 443 ssl;
     ssl_certificate /etc/ssl/certs/project.crt;
     ssl_certificate_key /etc/ssl/certs/project.key;
-    server_name ${NGINX_PROJECT}.${NGINX_HOST};
+    server_name ${NGINX_PROJECT}.${NGINX_HOST} ${ALT_NAMES};
     root /var/www/${NGINX_ROOT_DIR};
 
     location / {
